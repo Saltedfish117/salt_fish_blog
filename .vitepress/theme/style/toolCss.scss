@@ -1,0 +1,93 @@
+@import "./custom.scss";
+.p {
+	text-indent: 2em;
+}
+.card {
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 5px var(--vp-c-brand-1);
+	background-color: #fff;
+}
+.card:hover {
+	box-shadow: 0 0 10px var(--vp-c-brand-1);
+}
+.card-title {
+	font-size: 1.5em;
+}
+.d-flex {
+	display: flex;
+}
+.flex-center {
+	align-items: center;
+	justify-content: center;
+}
+.flex-between {
+	align-items: center;
+	justify-content: space-between;
+}
+.flex-around {
+	align-items: center;
+	justify-content: space-around;
+}
+.flex-start {
+	align-items: center;
+	justify-content: flex-start;
+}
+.flex-end {
+	align-items: center;
+	justify-content: flex-end;
+}
+@for $i from 1 through 1000 {
+	.mb-#{$i} {
+		margin-bottom: #{$i}px;
+	}
+	.mt-#{$i} {
+		margin-top: #{$i}px;
+	}
+	.ml-#{$i} {
+		margin-left: #{$i}px;
+	}
+	.mr-#{$i} {
+		margin-right: #{$i}px;
+	}
+	.pa-#{$i} {
+		padding: #{$i}px;
+	}
+	.pb-#{$i} {
+		padding-bottom: #{$i}px;
+	}
+	.pt-#{$i} {
+		padding-top: #{$i}px;
+	}
+	.pl-#{$i} {
+		padding-left: #{$i}px;
+	}
+	.pr-#{$i} {
+		padding-right: #{$i}px;
+	}
+	.flex-#{$i} {
+		flex: #{$i};
+	}
+}
+.empty-text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+	font-size: 16px;
+	color: var(--vp-c-text-2);
+	&::before {
+		content: "";
+		margin-right: 10px;
+		flex: 1;
+		height: 1px;
+		background-color: var(--vp-c-divider);
+	}
+	&::after {
+		content: "";
+		margin-left: 10px;
+		flex: 1;
+		height: 1px;
+		background-color: var(--vp-c-divider);
+	}
+}

@@ -12,19 +12,13 @@ hero:
     actions:
         - theme: brand
           text: Interesting，look look？
-          link: /pages/JavaScript/JavaScript重点总结
+          link: /docs/JavaScript/JavaScript重点总结
         - theme: alt
           text: 好好好，我也弄个博客
-          link: /pages/从零开始搭建博客网站/初识vitePress
+          link: /docs/从零开始搭建博客网站/1-vitepress
 features:
-    - title: 基础知识
-      details: HTML，CSS，JavaScript
-    - title: 前端框架
-      details: Vue2，Vue3，React
-    - title: 打包工具
-      details: webpack，vite
-    - title: 进阶知识
-      details: 计算机图形，web可视化，ThreeJS
+    - title: 知识文档
+      details: HTML，CSS，JavaScript；Vue2，Vue3，React；webpack，vite
 ---
 
 <script lang="ts" setup>
@@ -125,10 +119,13 @@ function mouserEnter(){
 if(speedStep >= 0.08)return
 if(speedStep >= 0.05)return speedStep += 0.01
 speedStep = 0.05 
-
 if(timeOut)clearTimeout(timeOut)
- timeOut =  setTimeout(()=>{
-    speedStep = 0.02;
+	timeOut = setTimeout(()=>{
+		for(let i = speedStep;i >= 0.02;i -= 0.01){
+			setTimeout(()=>{
+				speedStep -= 0.01;
+			},1000 * (i * 100))
+		}
   },1000 * 3)
 }
 function mouseLeave(){
@@ -138,12 +135,10 @@ function logoInit() {
 	cvs.value = document.getElementById("cvs") as HTMLCanvasElement;
 	ctx2d.value = cvs.value.getContext("2d") as CanvasRenderingContext2D;
 	cvs.value.addEventListener('click',mouserEnter)
-// cvs.value.addEventListener('mouseleave',mouseLeave)
 	draw();
 }
 onUnmounted(()=>{
   cvs.value.removeEventListener('click',mouserEnter)
-  // cvs.value.removeEventListener('mouseleave',mouseLeave)
 })
 onMounted(() => {
 	// console.log(slot)

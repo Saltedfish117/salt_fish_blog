@@ -1,9 +1,20 @@
 <!-- .vitepress/theme/Layout.vue -->
-
 <script setup lang="ts">
 import { useData } from "vitepress";
 import DefaultTheme from "vitepress/theme";
-import { nextTick, provide, ref, onMounted, onUnmounted ,} from "vue";
+import {
+	nextTick,
+	provide,
+	ref,
+	onMounted,
+	onUnmounted,
+	defineAsyncComponent,
+} from "vue";
+import { useTheme } from "vuetify";
+const theme = useTheme();
+const Comment = defineAsyncComponent(
+	() => import("./components/Comment/index.vue")
+);
 defineOptions({
 	name: "Layout",
 });
@@ -28,6 +39,9 @@ provide("toggle-appearance", async ({ clientX: x, clientY: y }: MouseEvent) => {
 
 	await document.startViewTransition(async () => {
 		isDark.value = !isDark.value;
+		theme.global.name.value = theme.global.current.value.dark
+			? "light"
+			: "dark";
 		await nextTick();
 	}).ready;
 
@@ -51,6 +65,9 @@ provide("toggle-appearance", async ({ clientX: x, clientY: y }: MouseEvent) => {
 				<canvas id="cvs"></canvas>
 				<div class="fish-img"></div>
 			</div>
+		</template>
+		<template #doc-after>
+			<Comment></Comment>
 		</template>
 	</DefaultTheme.Layout>
 </template>
@@ -84,18 +101,41 @@ provide("toggle-appearance", async ({ clientX: x, clientY: y }: MouseEvent) => {
 	margin: 0 auto;
 	animation: boxShadow 5s ease-in infinite;
 }
-@keyframes boxShadow {
+/* @keyframes boxShadow {
 	0% {
-		box-shadow: 1px -1px 3px 1px #4b83d8;
+		box-shadow: 0 -0 5px 5px #4b83d8;
 	}
 	33% {
-		box-shadow: -1px 1px 2px 1px #4b83d8;
+		box-shadow: 0 0 20px 10px #4b83d8;
 	}
 	66% {
-		box-shadow: -1px 1px 2px 1px #4b83d8;
+		box-shadow: 0 0 10px 5px #4b83d8;
 	}
 	100% {
-		box-shadow: 1px -1px 3px 1px #4b83d8;
+		box-shadow: 0 0 5px 5px #4b83d8;
+	}
+} */
+@keyframes boxShadow {
+	0% {
+		box-shadow: 1px -1px 5px #4b83d8;
+	}
+	14.2% {
+		box-shadow: -1px 1px 10px #4b83d8;
+	}
+	28.4% {
+		box-shadow: 1px -1px 5px #4b83d8;
+	}
+	42.5% {
+		box-shadow: -1px 1px 10px #4b83d8;
+	}
+	56.8% {
+		box-shadow: 1px -1px 5px #4b83d8;
+	}
+	71% {
+		box-shadow: -1px 1px 10px #4b83d8;
+	}
+	100% {
+		box-shadow: 1px -1px 5px #4b83d8;
 	}
 }
 @keyframes fishEnter {

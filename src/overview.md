@@ -1,8 +1,0 @@
----
-# layout: doc
-
----
-
-<script>
-
-</script>
