@@ -4,9 +4,7 @@
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import 'vuetify/styles'
-
 import { h } from "vue";
-
 import "./style/style.css";
 import "./style/custom.scss";
 import "./style/toolCss.scss";

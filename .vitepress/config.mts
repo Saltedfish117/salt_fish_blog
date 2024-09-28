@@ -68,6 +68,10 @@ export default defineConfig({
     plugins: [
       vuetify()
     ],
+    ssr: {
+      noExternal: ["vuetify"]
+    },
+
     resolve: {
       alias: [
         { find: '@', replacement: path.resolve(__dirname, '../src') },

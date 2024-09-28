@@ -2,6 +2,7 @@ import NotLogin from "../components/NotLogin/NotLogin.vue"
 import { createApp, h, getCurrentScope } from "vue"
 import type { ObjectDirective, App, } from "vue"
 import vuetify from '../plugin/vuetify.ts'
+// import 'vuetify/styles'
 const isLogin: ObjectDirective = {
     mounted(_el: any, binding: { value?: { id: string; title: string; text: string; } | undefined; }) {
         if (binding.value) {

@@ -116,39 +116,24 @@ const userModel = reactive({
 const goLogin = () => {
 	dialogVisible.value = true;
 };
-// export default defineComponent({
-// 	setup(props, ctx) {
-
-// 		return {
-// 			goLogin,
-// 		};
-// 	},
-// 	render() {
-// 		return h(
-// 			"div",
-// 			{
-// 				class: "not-login",
-// 			},
-// 			{
-// 				default: () => [
-// 					h("div", { class: "not-login__title" }, this.title),
-// 					h("div", { class: "not-login__text" }, this.text),
-// 					h(
-// 						"div",
-// 						{ class: "not-login__btn_container" },
-// 						h(this.$options.components.VBtn, {
-// 							class: "not-login__btn",
-// 							text: "登录/注册",
-// 							color: "primary",
-// 							onClick: this.goLogin,
-// 						})
-// 					),
-// 				],
-// 			}
-// 		);
-// 	},
-// });
 </script>
-<style lang="sass" scoped>
-@import './style.scss'
+<style lang="scss" scoped>
+.not-login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	padding: 20px;
+	.not-login__title {
+		font-size: 20px;
+		font-weight: 600;
+		margin-bottom: 10px;
+	}
+	.not-login__text {
+		font-size: 16px;
+		font-weight: 400;
+		margin-bottom: 10px;
+	}
+}
 </style>
